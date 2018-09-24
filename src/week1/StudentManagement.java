@@ -49,7 +49,7 @@ public class StudentManagement {
                 System.out.println("Danh sach lop " + group[l] +":\nHo Ten\t\t\tMSV\t\t\t    Lop\t\t\t  Email");
             for(int p=0;p<n;p++)
             {
-                if(students[p].getGroup().equals(group[l]) && !students[p].getGroup().equals("*"))
+                if(students[p].getGroup().equals(group[l]))
                     students[p].getInfo();
             }
             System.out.println("\n");
@@ -57,13 +57,19 @@ public class StudentManagement {
     }
     void removeStudent(String id) {
         // TODO:
-        int i=0;
-        while(students[i]!=null)
+        int i=0, n=4;
+        while(i<n)
         {
             if(students[i].getId().equals(id))
             {
-                students[i].setGroup("*");
+                for(int dem=i;dem<n;dem++)
+                {
+                    students[dem]=students[dem+1];
+
+                }
+                n--;
             }
+
             i++;
         }
     }
@@ -97,7 +103,7 @@ public class StudentManagement {
         st.studentsByGroup();
         System.out.println("*** Cau 13 ***");
         System.out.println("----Danh sach sinh vien sau khi xoa---- ");
-        st.removeStudent("17020910");
+        st.removeStudent("17020928");
         st.studentsByGroup();
 
     }
