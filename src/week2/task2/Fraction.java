@@ -120,12 +120,12 @@ public class Fraction {
 
     }
 
-    public boolean equals(Fraction other)
+    public boolean equals(Object obj)
     {
         // TODO: Phương thức so sanh 2 phan so
-        if(this.d !=0 && other.d != 0)
+        if(this.d !=0 && ((Fraction)obj).getD() != 0)
         {
-            if(this.n*other.d == this.d*other.n)
+            if(this.n*((Fraction)obj).getD() == this.d*((Fraction)obj).getN())
                 return true;
             else
                 return false;
@@ -134,10 +134,8 @@ public class Fraction {
             return false;
     }
 
-    public static void main(String[] args)
+    public void Output(Fraction F1, Fraction F2)
     {
-        Fraction F1 = new Fraction(-1,3);
-        Fraction F2 = new Fraction(-1,-6);
         if((F1.getD()==0)||(F2.getD()==0))
         {
             System.out.println("Nhap sai phan so!!!");
@@ -162,16 +160,23 @@ public class Fraction {
             if(F2.getN()==0)
                 System.out.println("Khong ton tai thuong hai phan so!!!");
             else
-                if(F1.divide(F2).getN()==0)
-                    System.out.println("Thuong hai phan so F1 va F2 la: 0");
-                else
-                    System.out.println("Thuong hai phan so F1 va F2 la: "+F1.divide(F2).getN()+"/"+F1.divide(F2).getD());
+            if(F1.divide(F2).getN()==0)
+                System.out.println("Thuong hai phan so F1 va F2 la: 0");
+            else
+                System.out.println("Thuong hai phan so F1 va F2 la: "+F1.divide(F2).getN()+"/"+F1.divide(F2).getD());
 
-            if(F1.equals(F2))
+            if(F1.equals((Object)F2))
                 System.out.println("Hai phan so bang nhau.");
             else
                 System.out.println("Hai phan so khong bang nhau.");
         }
+    }
+
+    public static void main(String[] args)
+    {
+        Fraction F1 = new Fraction(-1,3);
+        Fraction F2 = new Fraction(5,10);
+        F1.Output(F1,F2);
 
     }
 }
