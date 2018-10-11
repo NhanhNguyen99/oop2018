@@ -1,8 +1,8 @@
 package week4.task2;
 
 public class Circle extends Shape{
-    double radius = 1.0;
-    final double PI = 3.14;
+    private double radius = 1.0;
+    private final double PI = 3.14;
     Circle(){};
     Circle(double r)
     {
@@ -11,8 +11,8 @@ public class Circle extends Shape{
     Circle(double r, String c, boolean f)
     {
         radius=r;
-        color=c;
-        filled=f;
+        super.setColor(c);
+        super.setFilled(f);
     }
 
     public double getRadius() {
@@ -33,13 +33,14 @@ public class Circle extends Shape{
         return 2*PI*radius;
     }
 
+    @Override
     public String toString() {
-        return "Color: "+color+" "+"Filled: "+isFilled()+" "+"Radius: "+radius+"\n"+"Area: "+getArea()+"\n"+"Perimeter: "+getPerimeter();
+        return "***Circle***\n"+super.toString()+"\nRadius: "+radius+"\nArea: "+getArea()+"\nPerimeter: "+getPerimeter();
     }
 
     public static void main(String[] args)
     {
-        Circle c = new Circle();
+        Circle c = new Circle(2,"yellow",false);
         System.out.println(c);
     }
 }

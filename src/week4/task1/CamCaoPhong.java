@@ -1,7 +1,7 @@
 package week4.task1;
 
 public class CamCaoPhong extends Cam{
-    int gia;
+    private int gia;
 
     public int getGia() {
         return gia;
@@ -11,12 +11,26 @@ public class CamCaoPhong extends Cam{
         this.gia = gia;
     }
 
-    CamCaoPhong(){};
+    CamCaoPhong(){}
+    CamCaoPhong(int g){
+        gia = g;
+    }
+    CamCaoPhong(String l, String xx, String nn,int g)
+    {
+        super.setLoai(l);
+        super.setXuatxu(xx);
+        super.setNgaynhap(nn);
+        gia = g;
+    }
+    @Override
+    public String toString() {
+        return super.toString()+"\nGia: "+gia;
+    }
+
     public static void main(String[] args)
     {
-        CamCaoPhong ccp = new CamCaoPhong();
+        CamCaoPhong ccp = new CamCaoPhong("Cam Cao Phong","SaPa","18/07/2018",2500);
         ccp.setGia(4000);
-        ccp.getInfo();
-        System.out.println(ccp.getGia()+"\t"+ccp.getNgaynhap());
+        System.out.println(ccp);
     }
 }

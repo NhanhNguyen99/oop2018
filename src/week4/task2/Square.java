@@ -4,21 +4,20 @@ public class Square extends Rectangle {
     Square(){}
     Square(double size)
     {
-        width=length=size;
+        new Rectangle(size,size);
     }
     Square(double size, String color, boolean filled)
     {
-        width=length=size;
-        this.color=color;
-        this.filled=filled;
+        new Rectangle(size,size,color,filled);
     }
     public double getSize()
     {
-        return width;
+        return super.getWidth();
     }
     public void setSize(double size)
     {
-        width=length=size;
+        super.setLength(size);
+        super.setWidth(size);
     }
 
     @Override

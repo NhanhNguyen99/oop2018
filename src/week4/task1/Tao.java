@@ -14,18 +14,29 @@ public class Tao extends HoaQua{
     }
 
     Tao(){}
-
-    public void getInfo()
+    Tao(String n)
     {
-        System.out.println(getLoai()+"\t\t"+getXuatxu()+"\t"+ngaynhap);
+        ngaynhap = n;
     }
+    Tao(String l, String xx, String nn)
+    {
+        super.setLoai(l);
+        super.setXuatxu(xx);
+        ngaynhap = nn;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     public static void main(String[] args)
     {
         Tao t = new Tao();
         t.setLoai("Tao");
         t.setXuatxu("Sa Pa");
         t.setNgaynhap("02/03/2000");
-        t.getInfo();
+        System.out.println(t);
 
     }
 }

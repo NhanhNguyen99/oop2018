@@ -1,14 +1,20 @@
 package week4.task2;
 
 public class Rectangle extends Shape {
-    double width = 1.0, length = 1.0;
+    private  double width = 1.0;
+    private double length = 1.0;
     Rectangle(){};
+    Rectangle(double width, double length)
+    {
+        this.width = width;
+        this.length = length;
+    }
     Rectangle(double width, double length, String color, boolean filled)
     {
         this.width = width;
         this.length = length;
-        this.color = color;
-        this.filled = filled;
+        super.setColor(color);
+        super.setFilled(filled);
     }
 
     public double getWidth() {
@@ -36,14 +42,19 @@ public class Rectangle extends Shape {
         return 2*(width+length);
     }
 
+    @Override
     public String toString() {
-        return "Color: "+color+" Filled: "+filled+"\nWidth: "+width+" Length: "+length+"\nArea: "+getArea()+"\nPerimeter: "+getPerimeter();
+        if(width==length)
+            return "***Square***\n"+super.toString()+"\nSize: "+length+"\nArea: "+getArea()+"\nPerimeter: "+getPerimeter();
+        else if(width>length)
+            return "Error: Width>Length!!!";
+        else
+            return "***Rectangle***\n"+super.toString()+"\nWidth: "+width+"\nLength: "+length+"\nArea: "+getArea()+"\nPerimeter: "+getPerimeter();
     }
 
     public static void main(String[] args)
     {
-        Rectangle r = new Rectangle();
-        r.setLength(7.0);
+        Rectangle r = new Rectangle(5,6,"blue",true);
         System.out.println(r);
     }
 }
